@@ -18,25 +18,25 @@
 /// @author nghiatc
 /// @since Oct 13, 2020
 
-import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
+class Video {
+  final String id;
+  final String title;
+  final String thumbnailUrl;
+  final String channelTitle;
 
-void main() {
-  runApp(MyApp());
-}
+  Video({
+    this.id,
+    this.title,
+    this.thumbnailUrl,
+    this.channelTitle,
+  });
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'NVideo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: HomeScreen(),
+  factory Video.fromMap(Map<String, dynamic> snippet) {
+    return Video(
+      id: snippet['resourceId']['videoId'],
+      title: snippet['title'],
+      thumbnailUrl: snippet['thumbnails']['high']['url'],
+      channelTitle: snippet['channelTitle'],
     );
   }
 }

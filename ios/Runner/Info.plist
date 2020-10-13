@@ -41,5 +41,6 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<io.flutter.embedded_views_preview>YES</io.flutter.embedded_views_preview>
 </dict>
 </plist>
